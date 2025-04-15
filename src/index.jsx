@@ -1,40 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './app.css'
-import { Button, Container } from './components/basic.jsx'
+// Fancy CSS from bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { useState } from 'react';
+import { Header } from './components/header';
+import { Footer } from './components/footer';
+import { Menu } from './components/menu';
+import { Content } from './components/content';
+import { Container, Row, Col } from 'react-bootstrap';
+import { tasks } from './tasks'
 
 export const App = () => {
-  const [count, setCount] = useState(0)
+  // ST: [Content]
+  const [task, setTask] = useState(tasks[0]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-
-      <Container className="fancy-container">
-        <Button label='Alert' onClick={_ => alert('alert message')} />
-        <Button label='Debug output' onClick={_ => console.log('Looks like you\'re clicked that debug button')} />
-        <Button label='Open MDN' onClick={_ => open("https://developer.mozilla.org/en-US/docs/Web/API/Window/open")} />
+      <Header />
+      <Container className="mt-4 flex-grow-1">
+        <Row>
+          <Col md="auto">
+            <Menu tasks={tasks} onSelect={(id) => setTask(tasks.find((task) => task.id === id))} />
+          </Col>
+          <Col>
+            <Content task={task} />
+          </Col>
+        </Row>
       </Container>
+      <Footer />
     </>
   )
 }
