@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+import './app.css'
+import { Button, Container } from './components/basic.jsx'
 
-function App() {
+export const App = () => {
   const [count, setCount] = useState(0)
 
   return (
@@ -28,8 +29,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+
+      <Container className="fancy-container">
+        <Button label='Alert' onClick={_ => alert('alert message')} />
+        <Button label='Debug output' onClick={_ => console.log('Looks like you\'re clicked that debug button')} />
+        <Button label='Open MDN' onClick={_ => open("https://developer.mozilla.org/en-US/docs/Web/API/Window/open")} />
+      </Container>
     </>
   )
 }
-
-export default App
