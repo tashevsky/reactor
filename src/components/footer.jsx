@@ -1,39 +1,57 @@
-import React from 'react';
+import { Container, Row, Col, Nav } from 'react-bootstrap';
+import { ThemeContext } from './theme'
+import { useContext } from 'react';
 
 export const Footer = () => {
+    const { theme, _ } = useContext(ThemeContext);
+
     return (
-        <footer className="page-footer font-small blue pt-4">
-            <div className="container-fluid text-center text-md-left">
-                <div className="row">
-                    <div className="col-md-6 mt-md-0 mt-3">
-                        <h5 className="text-uppercase">Footer Content</h5>
-                        <p>Here you can use rows and columns to organize your footer content.</p>
-                    </div>
+        <footer
+            id="themeable-footer"
+            className="py-4 mt-auto"
+            style={{
+                backgroundColor: 'var(--bs-body-bg)',
+                color: 'var(--bs-body-color)'
+            }}
+            data-bs-theme={theme}
+        >
+            <Container>
+                <Row>
+                    <Col md={4} className="mb-3 mb-md-0">
+                        <h5>About Us</h5>
+                        <p className="small">
+                            Your company description goes here.
+                            Provide some information about your mission and values.
+                        </p>
+                    </Col>
 
-                    <hr className="clearfix w-100 d-md-none pb-0" />
+                    <Col md={4} className="mb-3 mb-md-0">
+                        <h5>Quick Links</h5>
+                        <Nav className="flex-column">
+                            <Nav.Link href="#">Home</Nav.Link>
+                            <Nav.Link href="#">Services</Nav.Link>
+                            <Nav.Link href="#">Products</Nav.Link>
+                            <Nav.Link href="#">Contact</Nav.Link>
+                        </Nav>
+                    </Col>
 
-                    <div className="col-md-3 mb-md-0 mb-3">
-                        <h5 className="text-uppercase">Left Links</h5>
-                        <ul className="list-unstyled">
-                            <li><a href="#!">Link 1</a></li>
-                            <li><a href="#!">Link 2</a></li>
-                        </ul>
-                    </div>
+                    <Col md={4}>
+                        <h5>Contact Info</h5>
+                        <address className="small">
+                            123 Main Street<br />
+                            City, State 12345<br />
+                            <abbr title="Phone">P:</abbr> (123) 456-7890<br />
+                            <abbr title="Email">E:</abbr> info@example.com
+                        </address>
+                    </Col>
+                </Row>
 
-                    <div className="col-md-3 mb-md-0 mb-3">
-                        <h5 className="text-uppercase">Right Links</h5>
-                        <ul className="list-unstyled">
-                            <li><a href="#!">Link 1</a></li>
-                            <li><a href="#!">Link 2</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div className="footer-copyright text-center py-3">
-                &copy; {new Date().getFullYear()} Copyright: Tashevsky & Co.
-            </div>
-
+                <Row className="mt-3">
+                    <Col className="text-center small">
+                        &copy; {new Date().getFullYear()} Tashevsky & Co.
+                    </Col>
+                </Row>
+            </Container>
         </footer>
     );
 };
