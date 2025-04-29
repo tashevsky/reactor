@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "email": "admin@support.com",
+      "password": "admin1",
+      "role": "admin",
+      "isBlocked": false,
+      "id": "FFFF"
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": "14ce",
+      "name": "JSIsNotFun",
+      "message": "U should better use TypeScript",
+      "isBlocked": false
+    },
+    {
+      "id": "a179",
+      "name": "Foo",
+      "message": "Bar",
+      "isBlocked": false
+    },
+    {
+      "id": "fb84",
+      "name": "foo",
+      "message": "bar",
+      "isBlocked": false
+    },
+    {
+      "id": "db23",
+      "name": "www",
+      "message": "www",
+      "isBlocked": false
+    },
+    {
+      "id": "34d8",
+      "name": "aaa",
+      "message": "bbb",
+      "isBlocked": false
+    },
+    {
+      "id": "bf53",
+      "name": "aaaaa",
+      "message": "aaaaa",
+      "isBlocked": false
+    }
+  ]
+}
